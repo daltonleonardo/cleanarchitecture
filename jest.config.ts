@@ -23,9 +23,11 @@ export default {
   // collectCoverageFrom: undefined,
   // collectCoverageFrom: '<rootDir>/src/**/*.ts',
   collectCoverageFrom: [
-    '<rootDir>/src/**/*.ts'
+    '<rootDir>/src/**/*.ts',
+    '!<rootDir>/src/main/**',
+    '!<rootDir>/src/**/*-protocols.ts',
+    '!**/protocols/**', '!**/test/**'
   ],
-
   // The directory where Jest should output its coverage files
   coverageDirectory: 'coverage',
 
