@@ -1,5 +1,5 @@
-import { AccountMongoRepository } from './../helpers/account-repository/account'
-import { MongoHelper } from '../helpers/mongo-helper'
+import { MongoHelper } from './../helpers/mongo-helper'
+import { AccountMongoRepository } from './account'
 
 describe('Account Mongo Repository', () => {
   beforeAll(async () => {
@@ -8,6 +8,12 @@ describe('Account Mongo Repository', () => {
 
   afterAll(async () => {
     await MongoHelper.disconnect()
+  })
+
+  beforeEach(async () => {
+    const accountCollection = MongoHelper.getCollection('accounts')
+    // parametro {}, vzio apaga tudo
+    await accountCollection.deleteMany({})
   })
 
   const makeSut = (): AccountMongoRepository => {
