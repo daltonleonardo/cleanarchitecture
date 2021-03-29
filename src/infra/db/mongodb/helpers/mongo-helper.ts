@@ -2,9 +2,12 @@ import { Collection, MongoClient } from 'mongodb'
 
 export const MongoHelper = {
   client: null as unknown as MongoClient,
+  uri: null as string,
+
   async connect (uri: string): Promise<void> {
-    console.log('process.env.MONGO_UR ', process.env.MONGO_UR)
-    this.client = await MongoClient.connect(process.env.MONGO_URL, {
+    // console.log('process.env.MONGO_UR ', process.env.MONGO_UR)
+    this.uri = uri
+    this.client = await MongoClient.connect(uri, {
       useNewUrlParser: true,
       useUnifiedTopology: true
     })
