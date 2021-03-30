@@ -17,6 +17,7 @@ describe('Signup Routes', () => {
     await accountCollection.deleteMany({})
   })
 
+  // todo está gerando erro no teste pós o uso do connect dentro do MongoHelper.getCollection
   test('should return an account on success', async () => {
     await request(app)
       .post('/api/signup')
