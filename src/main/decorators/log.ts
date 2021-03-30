@@ -14,8 +14,8 @@ export class LogControllerDecorator implements Controller {
     //   console.log('erro log')
     // }
     // return httpResponse
-    await this.controller.handle(httpRequest)
     // return await new Promise(resolve => resolve(null))
-    return null
+    const httpResponse = await this.controller.handle(httpRequest)
+    return httpResponse
   }
 }
